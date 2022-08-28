@@ -1,23 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import Info from './components/Info'
+import Home from './components/Home'
+import Sidebar from './components/Sidebar'
+import {useState} from 'react'
+
 
 function App() {
+  const [changer, setChanger] = useState(false)
+  if(changer === false){
+    document.body.style.backgroundColor = "#FDEEDC";
+  }
+  if(changer === true){
+    document.body.style.backgroundColor = "#483838";
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <Info changer={changer} />
+      <Home changer={changer} />
+      <Sidebar setChanger={setChanger} changer={changer} />
     </div>
   );
 }
